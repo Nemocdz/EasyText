@@ -38,10 +38,6 @@ extension EasyText: ExpressibleByStringInterpolation {
             rawAttributedString.append(NSAttributedString(string: literal))
         }
 
-        public func appendInterpolation(_ string:String, attributesDic:[NSAttributedString.Key: Any]) {
-            rawAttributedString.append(NSAttributedString(string: string, attributes: attributesDic))
-        }
-
         public func appendInterpolation(_ string:String, _ attributes:EasyText.Style...) {
             let attributesDic = [NSAttributedString.Key: Any](uniqueKeysWithValues: attributes.flatMap{ $0.attributeKeyValues } )
             rawAttributedString.append(NSAttributedString(string: string, attributes: attributesDic))
@@ -103,9 +99,9 @@ extension EasyText {
             return Style(attributeKeyValue: (.paragraphStyle, style))
         }
         
-        public static func paragrahStyle(_ styleBuilder:(NSMutableParagraphStyle) -> ()) -> Style {
+        public static func paragrahStyle(builder:(NSMutableParagraphStyle) -> ()) -> Style {
             let paragrahStyle = NSMutableParagraphStyle()
-            styleBuilder(paragrahStyle)
+            builder(paragrahStyle)
             return Style(attributeKeyValue: (.paragraphStyle, paragrahStyle))
         }
         
@@ -145,7 +141,7 @@ extension EasyText {
             }
         }
         
-        public static func underline(_ style:NSUnderlineStyle, color:Color? = nil) -> Style {
+        public static func underline(style:NSUnderlineStyle, color:Color? = nil) -> Style {
             if let color = color {
                 return Style(attributeKeyValue: (.underlineStyle, style.rawValue), (.underlineColor, color))
             } else {
@@ -165,9 +161,9 @@ extension EasyText {
             return Style(attributeKeyValue: (.shadow, shadow))
         }
         
-        public static func shadow(_ shadowBuilder:(NSShadow) -> ()) -> Style {
+        public static func shadow(builder:(NSShadow) -> ()) -> Style {
             let shadow = NSShadow()
-            shadowBuilder(shadow)
+            builder(shadow)
             return Style(attributeKeyValue: (.shadow, shadow))
         }
             
