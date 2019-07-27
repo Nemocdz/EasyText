@@ -47,9 +47,9 @@ extension EasyText: ExpressibleByStringInterpolation {
             rawAttributedString.append(NSAttributedString(string: string, attributes: attributesDic))
         }
             
-        public func appendInterpolation(attributedString: EasyText, _ attributes: EasyText.Style...) {
+        public func appendInterpolation(easyText:EasyText, _ attributes:EasyText.Style...) {
             let attributesDic = [NSAttributedString.Key: Any](uniqueKeysWithValues: attributes.flatMap{ $0.attributeKeyValues })
-            let mutableAttributedString = NSMutableAttributedString(attributedString: attributedString.attributedString)
+            let mutableAttributedString = NSMutableAttributedString(attributedString: easyText.attributedString)
             let range = NSRange(mutableAttributedString.string.startIndex..<mutableAttributedString.string.endIndex, in: mutableAttributedString.string)
             mutableAttributedString.addAttributes(attributesDic, range: range)
             rawAttributedString.append(mutableAttributedString)
@@ -67,9 +67,9 @@ extension EasyText: ExpressibleByStringInterpolation {
         
         @available(iOS 9.0, *)
         @available(OSX 10.0, *)
-        public func appendInterpolation(image:Image, bounds:CGRect = .zero) {
+        public func appendInterpolation(image:Image, bounds:CGRect? = nil) {
             let attachment = NSTextAttachment(image: image)
-            attachment.bounds = bounds
+            attachment.bounds = bounds ?? CGRect(origin: .zero, size: image.size)
             rawAttributedString.append(NSAttributedString(attachment: attachment))
         }
     }
@@ -103,40 +103,9 @@ extension EasyText {
             return Style(attributeKeyValue: (.paragraphStyle, style))
         }
         
-        public static func paragrahStyle(lineSpacing:CGFloat = 0,
-                                         paragraphSpacing:CGFloat = 0,
-                                         alignment:NSTextAlignment = .natural,
-                                         headIndent:CGFloat = 0,
-                                         tailIndent:CGFloat = 0,
-                                         firstLineHeadIndent:CGFloat = 0,
-                                         minLineHeight:CGFloat = 0,
-                                         maxLineHeight:CGFloat = 0,
-                                         lineBreakMode:NSLineBreakMode = .byWordWrapping,
-                                         writingDirection:NSWritingDirection = .natural,
-                                         lineHeightMultiple:CGFloat = 0,
-                                         pargraphSpacingBefore:CGFloat = 0,
-                                         hyphenationFactor:Float = 0,
-                                         tabStops:[NSTextTab] = [],
-                                         defaultTabInterval:CGFloat = 0,
-                                         allowsDefaultTighteningForTruncation:Bool = false) -> Style {
+        public static func paragrahStyle(_ styleBuilder:(NSMutableParagraphStyle) -> ()) -> Style {
             let paragrahStyle = NSMutableParagraphStyle()
-            paragrahStyle.setParagraphStyle(NSParagraphStyle.default)
-            paragrahStyle.lineSpacing = lineSpacing
-            paragrahStyle.paragraphSpacing = paragraphSpacing
-            paragrahStyle.alignment = alignment
-            paragrahStyle.headIndent = headIndent
-            paragrahStyle.tailIndent = tailIndent
-            paragrahStyle.firstLineHeadIndent = firstLineHeadIndent
-            paragrahStyle.minimumLineHeight = minLineHeight
-            paragrahStyle.maximumLineHeight = maxLineHeight
-            paragrahStyle.lineBreakMode = lineBreakMode
-            paragrahStyle.baseWritingDirection = writingDirection
-            paragrahStyle.lineHeightMultiple = lineHeightMultiple
-            paragrahStyle.paragraphSpacingBefore = pargraphSpacingBefore
-            paragrahStyle.hyphenationFactor = hyphenationFactor
-            paragrahStyle.defaultTabInterval = defaultTabInterval
-            paragrahStyle.allowsDefaultTighteningForTruncation = allowsDefaultTighteningForTruncation
-            tabStops.forEach{ paragrahStyle.addTabStop($0) }
+            styleBuilder(paragrahStyle)
             return Style(attributeKeyValue: (.paragraphStyle, paragrahStyle))
         }
         
@@ -196,16 +165,12 @@ extension EasyText {
             return Style(attributeKeyValue: (.shadow, shadow))
         }
         
-        public static func shadow(color:Color? = nil, offset:Size = .zero, bulrRadius:CGFloat = 0) -> Style {
+        public static func shadow(_ shadowBuilder:(NSShadow) -> ()) -> Style {
             let shadow = NSShadow()
-            if let color = color {
-                shadow.shadowColor = color
-            }
-            shadow.shadowOffset = offset
-            shadow.shadowBlurRadius = bulrRadius
+            shadowBuilder(shadow)
             return Style(attributeKeyValue: (.shadow, shadow))
         }
-        
+            
         public static func textEffect(_ style:NSAttributedString.TextEffectStyle) -> Style {
             return Style(attributeKeyValue: (.textEffect, style.rawValue))
         }
