@@ -34,13 +34,13 @@ class ViewController: UIViewController {
         \("https://swift.org", .link("https://swift.org"))
         \("underline single and yellow color", .underline(style: .single, color: .yellow))
         \("stroke width 2 and red color", .stroke(width: 2, color: .red))
-        \("strikethrough single and pink color", .strikethrough(style: .single, color: .systemPink))
+        \("strikethrough single and pink color", .strikethrough(style: .single, color: .purple))
         \("unsupport attributed key can use this", EasyText.Style(attributeKeyValue: (.ligature, 1), (.backgroundColor, UIColor.orange)))
         \(easyText:"\("support nest easyText", .color(.green))", .font(.systemFont(ofSize: 18)))
         """
-
         textView.attributedText = text.attributedString
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,3 +1,11 @@
+//
+//  EasyText.swift
+//  EasyText
+//
+//  Created by Nemocdz on 07/25/2019.
+//  Copyright (c) 2019 Nemocdz. All rights reserved.
+//
+
 import Foundation
 
 #if os(macOS)
@@ -6,6 +14,7 @@ import AppKit
 import UIKit
 #endif
 
+@available(swift 5)
 public struct EasyText {
     public let attributedString: NSAttributedString
 }
@@ -64,7 +73,8 @@ extension EasyText: ExpressibleByStringInterpolation {
         @available(iOS 9.0, *)
         @available(OSX 10.0, *)
         public func appendInterpolation(image:Image, bounds:CGRect? = nil) {
-            let attachment = NSTextAttachment(image: image)
+            let attachment = NSTextAttachment()
+            attachment.image = image
             attachment.bounds = bounds ?? CGRect(origin: .zero, size: image.size)
             rawAttributedString.append(NSAttributedString(attachment: attachment))
         }
@@ -205,5 +215,41 @@ extension EasyText {
         public static func vericalGlyphForm(_ option:VericalGlyphFormOption) -> Style {
             return Style(attributeKeyValue: (.verticalGlyphForm, option.rawValue))
         }
+    }
+}
+
+extension EasyText {
+    public static func + (lhs: EasyText, rhs: EasyText) -> EasyText {
+        let attributedString = NSMutableAttributedString(attributedString: lhs.attributedString)
+        attributedString.append(rhs.attributedString)
+        return EasyText(attributedString: attributedString)
+    }
+    
+    public static func + (lhs: EasyText, rhs: String) -> EasyText {
+        return lhs + EasyText(stringLiteral: rhs)
+    }
+    
+    public static func + (lhs: String, rhs: EasyText) -> EasyText {
+        return EasyText(stringLiteral: lhs) + rhs
+    }
+    
+    public static func + (lhs: EasyText, rhs: NSAttributedString) -> EasyText {
+        return lhs + EasyText(attributedString: rhs)
+    }
+    
+    public static func + (lhs: NSAttributedString, rhs: EasyText) -> EasyText {
+        return EasyText(attributedString: lhs) + rhs
+    }
+    
+    public static func += (lhs: inout EasyText, rhs: EasyText) {
+        lhs = lhs + rhs
+    }
+    
+    public static func += (lhs: inout EasyText, rhs: String) {
+        lhs = lhs + rhs
+    }
+    
+    public static func += (lhs: inout EasyText, rhs: NSAttributedString) {
+        lhs = lhs + EasyText(attributedString: rhs)
     }
 }
