@@ -250,6 +250,6 @@ extension EasyText {
     }
     
     public static func += (lhs: inout EasyText, rhs: NSAttributedString) {
-        lhs = lhs + EasyText(attributedString: rhs)
+        lhs = lhs + rhs
     }
 }
