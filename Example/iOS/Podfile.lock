@@ -1,0 +1,16 @@
+PODS:
+  - EasyText (0.1.0)
+
+DEPENDENCIES:
+  - EasyText (from `../..`)
+
+EXTERNAL SOURCES:
+  EasyText:
+    :path: "../.."
+
+SPEC CHECKSUMS:
+  EasyText: 958676fb5794c8186e210c19e56b3a8b30d1572e
+
+PODFILE CHECKSUM: de8d058ed07cfad9ab22875d7e4fdee84b5f44f5
+
+COCOAPODS: 1.7.5

@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'EasyTextExample' do
+  pod 'EasyText', :path => '../..'i
+end

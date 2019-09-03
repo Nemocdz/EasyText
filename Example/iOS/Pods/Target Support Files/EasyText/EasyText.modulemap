@@ -1,0 +1,6 @@
+framework module EasyText {
+  umbrella header "EasyText-umbrella.h"
+
+  export *
+  module * { export * }
+}

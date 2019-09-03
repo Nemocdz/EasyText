@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EasyText'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'Easy way to use attributedString on Swift 5'
 
 # This description is used to generate tags and improve search results.
@@ -30,11 +30,11 @@ TODO: Add long description of the pod here.
 
   s.swift_versions = ['5.0', '5.1']
   s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.0'
-  s.watchos.deployment_target = '2.0'
+  s.osx.deployment_target = '10.11'
 
-  s.source_files = 'EasyText/Classes/**/*'
-  
+  s.source_files = ['EasyText/*.swift', 'EasyText/EasyText.h']
+  s.public_header_files = 'EasyText/EasyText.h'
+
   # s.resource_bundles = {
   #   'EasyText' => ['EasyText/Assets/*.png']
   # }
