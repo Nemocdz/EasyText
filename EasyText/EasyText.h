@@ -6,7 +6,7 @@
 //  Copyright © 2019 nemocdz. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for EasyText.
 FOUNDATION_EXPORT double EasyTextVersionNumber;

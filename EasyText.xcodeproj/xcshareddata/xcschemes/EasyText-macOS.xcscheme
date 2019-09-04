@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BA304490231E210800BC7F10"
-               BuildableName = "EasyText_macOS.framework"
+               BuildableName = "EasyText.framework"
                BlueprintName = "EasyText-macOS"
                ReferencedContainer = "container:EasyText.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BA304490231E210800BC7F10"
-            BuildableName = "EasyText_macOS.framework"
+            BuildableName = "EasyText.framework"
             BlueprintName = "EasyText-macOS"
             ReferencedContainer = "container:EasyText.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BA304490231E210800BC7F10"
-            BuildableName = "EasyText_macOS.framework"
+            BuildableName = "EasyText.framework"
             BlueprintName = "EasyText-macOS"
             ReferencedContainer = "container:EasyText.xcodeproj">
          </BuildableReference>
