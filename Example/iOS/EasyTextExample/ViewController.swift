@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         default
         \("font is 20pt", .font(.systemFont(ofSize: 20)))
         \("color is blue", .color(.blue))
+        \("font is 30 pt and color is yellow", .font(.systemFont(ofSize: 20)), .color(.blue))
         \("paragraghStyle can set, paragraphSpacing is 2, lineSpacing is 10, alignment is center", .paragrahStyle(builder:{
         $0.paragraphSpacing = 2
         $0.alignment = .center
@@ -40,7 +41,5 @@ class ViewController: UIViewController {
         """
         textView.attributedText = text.attributedString
     }
-
-
 }
 
