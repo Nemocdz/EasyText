@@ -29,8 +29,6 @@
 		BA304491231E210800BC7F10 /* EasyText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA304493231E210900BC7F10 /* EasyText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyText.h; sourceTree = "<group>"; };
 		BA304494231E210900BC7F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA3044A0231E213100BC7F10 /* EasyText_WatchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyText_WatchOS.h; sourceTree = "<group>"; };
-		BA3044A1231E213100BC7F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAC7CC84231E150F008B416A /* EasyText.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyText.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC7CC87231E150F008B416A /* EasyText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyText.h; sourceTree = "<group>"; };
 		BAC7CC88231E150F008B416A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,22 +73,12 @@
 			path = EasyText;
 			sourceTree = "<group>";
 		};
-		BA30449F231E213100BC7F10 /* EasyText-WatchOS */ = {
-			isa = PBXGroup;
-			children = (
-				BA3044A0231E213100BC7F10 /* EasyText_WatchOS.h */,
-				BA3044A1231E213100BC7F10 /* Info.plist */,
-			);
-			path = "EasyText-WatchOS";
-			sourceTree = "<group>";
-		};
 		BAC7CC7A231E150F008B416A = {
 			isa = PBXGroup;
 			children = (
 				BAC7CC86231E150F008B416A /* EasyText */,
 				BAC7CC91231E150F008B416A /* EasyTextTests */,
 				BA304492231E210800BC7F10 /* EasyText */,
-				BA30449F231E213100BC7F10 /* EasyText-WatchOS */,
 				BAC7CC85231E150F008B416A /* Products */,
 			);
 			sourceTree = "<group>";
