@@ -93,10 +93,6 @@ extension EasyText {
         public typealias Font = UIFont
         public typealias Color = UIColor
         public typealias Size = CGSize
-        #elseif os(watchOS)
-        public typealias Font = UIFont
-        public typealias Color = UIColor
-        public typealias Size = CGSize
         #endif
         
         let attributeKeyValues:[AttributeKeyValue]
